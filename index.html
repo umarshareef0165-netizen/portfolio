@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umar Shareef — Full-Stack &amp; AI Agentic Developer</title>
+<meta name="description" content="Umar Shareef is a final-year Computer Science student at the University of Agriculture Faisalabad and a full-stack and AI agentic developer with 3+ years of professional experience. He builds AI agents and full-stack products that ship live.">
+<meta name="author" content="Umar Shareef">
+<meta name="theme-color" content="#0b0f14">
+<style>
+  :root{
+    --bg:#0b0f14;
+    --surface:#111927;
+    --surface-2:#16202f;
+    --border:#223047;
+    --text:#e6ebf2;
+    --muted:#a8b3c2;
+    --accent:#4ade80;
+    --accent-soft:rgba(74,222,128,.12);
+    --accent-ink:#052e16;
+    --radius:14px;
+    --max:1080px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{
+    outline:3px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .skip-link{
+    position:absolute;left:-9999px;top:0;
+    background:var(--accent);color:var(--accent-ink);
+    padding:.6rem 1rem;font-weight:700;z-index:100;border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{left:0;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,15,20,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:60px}
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:var(--text);white-space:nowrap}
+  .brand span{color:var(--accent)}
+  nav.main ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0}
+  nav.main a{color:var(--muted);font-size:.95rem;font-weight:600}
+  nav.main a:hover{color:var(--text);text-decoration:none}
+  .menu-btn{
+    display:none;background:none;border:1px solid var(--border);color:var(--text);
+    border-radius:8px;padding:.45rem .7rem;font:inherit;font-size:.9rem;cursor:pointer;
+  }
+  @media (max-width:640px){
+    .menu-btn{display:inline-block}
+    nav.main{display:none;width:100%}
+    nav.main.open{display:block}
+    nav.main ul{flex-direction:column;gap:.2rem;padding:.5rem 0 1rem}
+    nav.main a{display:block;padding:.5rem 0}
+    .bar{flex-wrap:wrap}
+  }
+  /* ---------- hero ---------- */
+  .hero{padding:4.5rem 0 3rem}
+  .eyebrow{
+    display:inline-block;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);
+    border:1px solid rgba(74,222,128,.35);border-radius:999px;padding:.3rem .8rem;margin-bottom:1.2rem;
+  }
+  h1{
+    font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 1.1rem;
+  }
+  h1 .hl{color:var(--accent)}
+  .lead{font-size:1.15rem;color:var(--muted);max-width:46rem;margin:0 0 1.8rem}
+  .cta{display:flex;flex-wrap:wrap;gap:.8rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.7rem 1.25rem;border-radius:10px;font-weight:700;font-size:.98rem;
+    border:1px solid transparent;cursor:pointer;
+  }
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+  .btn-ghost:hover{border-color:var(--accent)}
+  .btn svg{flex:none}
+  /* ---------- sections ---------- */
+  section{padding:2.6rem 0}
+  section h2{
+    font-size:1.6rem;letter-spacing:-.01em;margin:0 0 .4rem;
+  }
+  .section-sub{color:var(--muted);margin:0 0 1.8rem;max-width:44rem}
+  /* ---------- projects ---------- */
+  .grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;
+    list-style:none;margin:0;padding:0;
+  }
+  @media (max-width:760px){.grid{grid-template-columns:1fr}}
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:1.4rem 1.4rem 1.2rem;display:flex;flex-direction:column;gap:.7rem;
+    transition:transform .15s ease,border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .card.featured{border-color:rgba(74,222,128,.55);background:linear-gradient(180deg,rgba(74,222,128,.07),var(--surface) 55%)}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem}
+  .card h3{margin:0;font-size:1.22rem;letter-spacing:-.01em}
+  .badge{
+    flex:none;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--accent-ink);background:var(--accent);border-radius:999px;padding:.22rem .6rem;
+  }
+  .card p{margin:0;color:var(--muted)}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+  .tags li{
+    font-size:.8rem;font-weight:600;color:var(--text);
+    background:var(--surface-2);border:1px solid var(--border);
+    border-radius:999px;padding:.18rem .6rem;
+  }
+  .evidence{
+    font-size:.88rem;color:var(--text);
+    border-top:1px solid var(--border);padding-top:.7rem;
+  }
+  .evidence strong{color:var(--accent);font-weight:700}
+  .links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:auto;padding-top:.35rem}
+  .links a{
+    display:inline-flex;align-items:center;gap:.35rem;
+    font-weight:700;font-size:.92rem;color:var(--text);
+  }
+  .links a:hover{color:var(--accent);text-decoration:none}
+  .links svg{flex:none}
+  /* ---------- about / skills ---------- */
+  .about p{max-width:46rem;margin:0 0 1rem}
+  .skills{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+  .skills li{
+    font-size:.92rem;font-weight:600;color:var(--text);
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:999px;padding:.4rem .9rem;
+  }
+  /* ---------- contact / footer ---------- */
+  .contact-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    padding:1.6rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.2rem;
+  }
+  .contact-card h2{margin:0}
+  .contact-card p{margin:.3rem 0 0;color:var(--muted)}
+  .social{display:flex;gap:.7rem;list-style:none;margin:0;padding:0}
+  .social a{
+    display:inline-flex;align-items:center;gap:.5rem;color:var(--text);
+    background:var(--surface-2);border:1px solid var(--border);
+    border-radius:10px;padding:.6rem .9rem;font-weight:700;font-size:.92rem;
+  }
+  .social a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  footer.site{border-top:1px solid var(--border);padding:1.6rem 0 2.2rem;color:var(--muted);font-size:.9rem}
+  footer.site p{margin:.25rem 0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#projects">Skip to projects</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Umar Shareef — back to top">Umar Shareef<span>.</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="main" id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="page-title">
+    <div class="wrap">
+      <p class="eyebrow">Portfolio</p>
+      <h1 id="page-title">Full-Stack &amp; AI Agentic Developer — <span class="hl">I ship AI agents that work live</span></h1>
+      <p class="lead">Final-year Computer Science student at the University of Agriculture Faisalabad and a full-stack and AI agentic developer with 3+ years of professional experience.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#projects">View live projects</a>
+        <a class="btn btn-ghost" href="https://github.com/umarshareef0165-netizen" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/umar-shareef-94b1aa318" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="wrap">
+      <h2 id="projects-title">Live projects</h2>
+      <p class="section-sub">Every project below is live and open source. Each one shipped as a working product — not a mockup.</p>
+      <ol class="grid">
+        <!-- 1. AgriYield Advisor -->
+        <li class="card featured">
+          <div class="card-top">
+            <h3>AgriYield Advisor</h3>
+            <span class="badge">Featured</span>
+          </div>
+          <p>Urdu-first AI data agent that gives Pakistan&rsquo;s smallholder farmers a 7-day irrigation plan, yield forecasts, and sowing advice from live weather, soil, and market data.</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Next.js</li><li>React</li><li>TypeScript</li><li>Vercel</li>
+          </ul>
+          <p class="evidence"><strong>Evidence:</strong> DATANOVA 2026 submission &middot; Wheat yield forecast 3.12 t/ha (RMSE 0.098) &middot; Irrigation backtest MAE 0.090 vs naive 0.228 &middot; 63/63 tests green</p>
+          <div class="links">
+            <a href="https://agriyield-advisor.vercel.app/" target="_blank" rel="noopener">Live demo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://github.com/umarshareef0165-netizen/agriyield-advisor" target="_blank" rel="noopener">Source code <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://www.youtube.com/watch?v=kXTrAYqDCW0" target="_blank" rel="noopener">Watch demo <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></a>
+          </div>
+        </li>
+
+        <!-- 2. FrankenLedger -->
+        <li class="card">
+          <div class="card-top">
+            <h3>FrankenLedger</h3>
+          </div>
+          <p>A shop&rsquo;s books, stitched together — an agentic AI bookkeeper that parses messy shop orders, flags problems, and exports a clean ledger with PDF.</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Next.js</li><li>React</li><li>TypeScript</li><li>Render</li><li>Kiro</li>
+          </ul>
+          <p class="evidence"><strong>Evidence:</strong> Kiroween 2026 entry (Frankenstein category) &middot; 269 tests passed &middot; 14/14 orders parsed with source lines &middot; PDF export valid</p>
+          <div class="links">
+            <a href="https://frankenledger-21fh.vercel.app" target="_blank" rel="noopener">Live demo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://github.com/umarshareef0165-netizen/frankenledger" target="_blank" rel="noopener">Source code <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://youtu.be/xNHWhH5CjZc" target="_blank" rel="noopener">Watch demo <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></a>
+          </div>
+        </li>
+
+        <!-- 3. Receipt-to-Ledger -->
+        <li class="card">
+          <div class="card-top">
+            <h3>Receipt-to-Ledger</h3>
+          </div>
+          <p>Photograph a receipt, get a clean exportable ledger — AI extraction with exact integer-cents arithmetic.</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Next.js</li><li>React</li><li>TypeScript</li><li>Clocked SDK</li>
+          </ul>
+          <p class="evidence"><strong>Evidence:</strong> Clocked Build Challenge submission (Nov 10, 2026) &middot; 39/39 tests green</p>
+          <div class="links">
+            <a href="https://receipt-to-ledger.vercel.app/" target="_blank" rel="noopener">Live demo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://github.com/umarshareef0165-netizen/receipt-to-ledger" target="_blank" rel="noopener">Source code <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://youtu.be/2fKNRv7Ed9Y" target="_blank" rel="noopener">Watch demo <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></a>
+          </div>
+        </li>
+
+        <!-- 4. PayPerPrompt -->
+        <li class="card">
+          <div class="card-top">
+            <h3>PayPerPrompt</h3>
+          </div>
+          <p>An AI agent with its own Solana wallet that pays per tool call in SOL via Solana Pay.</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Next.js</li><li>React</li><li>Solana Pay</li><li>Neon</li>
+          </ul>
+          <p class="evidence"><strong>Evidence:</strong> MLH Solana Hackathon submission (Nov 8, 2026) &middot; Top 3 Overall + AI Track entry</p>
+          <div class="links">
+            <a href="https://payperprompt-three.vercel.app/" target="_blank" rel="noopener">Live demo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://github.com/umarshareef0165-netizen/payperprompt" target="_blank" rel="noopener">Source code <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://youtu.be/Rwu3ahKivWE" target="_blank" rel="noopener">Watch demo <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></a>
+          </div>
+        </li>
+
+        <!-- 5. Scholarship Hunter Agent -->
+        <li class="card">
+          <div class="card-top">
+            <h3>Scholarship Hunter Agent</h3>
+          </div>
+          <p>An agent-native scholarship hunter that finds and verifies real programmes for students.</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Next.js</li><li>React</li><li>Agent-Native</li><li>Vercel AI SDK</li><li>Drizzle ORM</li>
+          </ul>
+          <p class="evidence"><strong>Evidence:</strong> Agent-Native Hackathon submission (Nov 9, 2026) &middot; 9 actions &middot; 17 real programmes, verified &middot; 21/21 tests green</p>
+          <div class="links">
+            <a href="https://scholarship-hunter-agent.vercel.app/" target="_blank" rel="noopener">Live demo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://github.com/umarshareef0165-netizen/scholarship-hunter-agent" target="_blank" rel="noopener">Source code <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://www.youtube.com/watch?v=GemSmmD_pTw" target="_blank" rel="noopener">Watch demo <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></a>
+          </div>
+        </li>
+
+        <!-- 6. HireReady Agent -->
+        <li class="card">
+          <div class="card-top">
+            <h3>HireReady Agent</h3>
+          </div>
+          <p>An agentic AI coach that turns a student&rsquo;s CV + GitHub + job description into a skill-gap report, a dated learning plan, and mock-interview practice — every claim tied to evidence.</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Python</li><li>Agentic pipeline</li><li>Render</li>
+          </ul>
+          <p class="evidence"><strong>Evidence:</strong> Code for a Billion 2026 entry (Tech Employment for Youth)</p>
+          <div class="links">
+            <a href="https://hireready-agent.onrender.com" target="_blank" rel="noopener">Live demo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://github.com/umarshareef0165-netizen/hireready-agent" target="_blank" rel="noopener">Source code <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+            <a href="https://youtu.be/o9fFAaN8fb8" target="_blank" rel="noopener">Watch demo <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></a>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <h2 id="about-title">About</h2>
+      <p>Umar Shareef is a final-year Computer Science student at the University of Agriculture Faisalabad and a full-stack and AI agentic developer with 3+ years of professional experience. He builds AI agents and full-stack products that ship live — from an Urdu-first AI advisor for smallholder farmers to an AI agent that pays for its own tool calls in SOL. His shipped projects include hackathon entries for DATANOVA, MLH, Clocked, Agent-Native, DSH Hacks, and Code for a Billion. He works in React, Next.js, TypeScript, Python, and Node.js, and cares about one thing: software that works in the real world, for real people.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <h2 id="skills-title">Skills</h2>
+      <ul class="skills">
+        <li>React</li>
+        <li>Next.js</li>
+        <li>TypeScript</li>
+        <li>Python</li>
+        <li>Node.js</li>
+        <li>AI Agents</li>
+        <li>Solana</li>
+        <li>PostgreSQL</li>
+        <li>Vercel</li>
+        <li>Render</li>
+        <li>Docker</li>
+        <li>GitHub</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-card">
+        <div>
+          <h2 id="contact-title">Let&rsquo;s build something real</h2>
+          <p>Open to collaborations, hackathons, and full-stack / AI agent work.</p>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="https://github.com/umarshareef0165-netizen" target="_blank" rel="noopener" aria-label="Umar Shareef on GitHub">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/umar-shareef-94b1aa318" target="_blank" rel="noopener" aria-label="Umar Shareef on LinkedIn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/umarshareef0165" target="_blank" rel="noopener" aria-label="Umar Shareef on X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 5.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg>
+              X
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Built by Umar Shareef — <span id="year">2026</span>.</p>
+    <p>Every project above is live and open source.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle (progressive enhancement; nav is visible on desktop without JS)
+  (function () {
+    var btn = document.querySelector('.menu-btn');
+    var nav = document.getElementById('main-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    var year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
